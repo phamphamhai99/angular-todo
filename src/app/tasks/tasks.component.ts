@@ -13,7 +13,7 @@ export class TasksComponent {
   @Input({ required: true }) userId!: string;
   @Input({ required: true }) name!: string;
 
-  isActive: boolean = false;
+  isAddingTask: boolean = false;
 
   tasks = [
     {
@@ -49,7 +49,11 @@ export class TasksComponent {
     this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
-  onAddTask() {
-    this.isActive = !this.isActive;
+  onStartAddTask() {
+    this.isAddingTask = !this.isAddingTask;
+  }
+
+  onCancelAddTask() {
+    this.isAddingTask = false;
   }
 }
